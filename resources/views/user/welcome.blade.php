@@ -1,12 +1,12 @@
 @extends('user.app')
 @section('content')
-<div class="site-blocks-cover" style="background-image: url({{ asset('shopper') }}/images/hero_1.jpg);" data-aos="fade">
+<div class="site-blocks-cover" style="background-color: rgb(127, 255, 244)" data-aos="fade">
     <div class="container">
-    <div class="row align-items-start align-items-md-center justify-content-end">
+    <div class="row align-items-start align-items-md-center justify-content-start">
         <div class="col-md-5 text-center text-md-left pt-5 pt-md-0">
-        <h1 class="mb-2">Cari Kebutuhan Olahraga Kamu Di Sini</h1>
+        <h1 class="mb-2">Cari Kebutuhan Style di sini</h1>
         <div class="intro-text text-center text-md-left">
-            <p class="mb-4">Alat olahraga disini terjamin kualitasnya dan tentunya barangnya juga original bukan kw. </p>
+            <p class="mb-4">Produk disini terjamin kualitasnya dan tentunya barangnya juga original bukan kw. </p>
             <p>
             <a href="{{ route('user.produk') }}" class="btn btn-sm btn-primary">Belanja Sekarang</a>
             </p>

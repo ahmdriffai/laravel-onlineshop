@@ -47,10 +47,10 @@
                                 <td align="center">
                                 <div class="btn-group" role="group" aria-label="Basic example">
                                   <a href="{{ route('admin.rekening.edit',['id'=>$rek->id]) }}" class="btn btn-warning btn-sm">
-                                    <i class="mdi mdi-tooltip-edit"></i>
+                                    edit
                                   </a>
                                   <a href="{{ route('admin.rekening.delete',['id'=>$rek->id]) }}" onclick="return confirm('Yakin Hapus data')" class="btn btn-danger btn-sm">
-                                    <i class="mdi mdi-delete-forever"></i>
+                                    hapus
                                   </a>
                                 </div>
                                 </td>
@@ -64,5 +64,5 @@
               </div>
             </div>
           </div>
-          
+
 @endsection
