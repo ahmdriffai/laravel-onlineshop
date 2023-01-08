@@ -140,9 +140,9 @@
             <div class="block-5 mb-5">
               <h3 class="footer-heading mb-4">Contact Info</h3>
               <ul class="list-unstyled">
-                <li class="address">Jalan sukses menuju dunia akhirat</li>
-                <li class="phone"><a href="tel://23923929210">+62 3392 3929 210</a></li>
-                <li class="email">sport@gmail.com</li>
+                <li class="address">Jl. jawar, Bumirejo, Kec. Mojotengah, Kabupaten, Wonosobo Jawa Tengah 56361</li>
+                <li class="phone"><a href="tel://">0822332828929</a></li>
+                <li class="email">tabungcreative08@gmail.com</li>
               </ul>
             </div>
 
