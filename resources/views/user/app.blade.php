@@ -19,6 +19,13 @@
 
     <link rel="stylesheet" href="{{ asset('shopper') }}/css/style.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/css/select2.min.css" rel="stylesheet" />
+  
+    <style>
+      .btn-primary {
+        background-color: #ee2a7b !important;
+        border: #ee2a7b;
+      }
+    </style>
   </head>
   <body>
 
@@ -38,7 +45,7 @@
 
             <div class="col-12 mb-3 mb-md-0 col-md-4 order-1 order-md-2 text-center">
               <div class="site-logo">
-                <a href="/" class="js-logo-clone">TOKO TCD</a>
+                <img src="{{ asset('logo-tcd.png') }}" width="100px"/>
               </div>
             </div>
 

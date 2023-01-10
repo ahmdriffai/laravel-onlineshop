@@ -26,4 +26,10 @@
 
     <!-- Custom styles for this template-->
     <link href="{{asset('/sb-admin/css/sb-admin-2.min.css')}}" rel="stylesheet">
+    <style>
+        .btn-primary {
+            background-color: #ee2a7b !important;
+            border: #ee2a7b;
+        }
+    </style>
 </head>
