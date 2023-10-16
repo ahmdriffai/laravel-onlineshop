@@ -19,7 +19,7 @@
 
     <link rel="stylesheet" href="{{ asset('shopper') }}/css/style.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/css/select2.min.css" rel="stylesheet" />
-  
+
     <style>
       .btn-primary {
         background-color: #ee2a7b !important;

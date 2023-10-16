@@ -3,7 +3,7 @@
 <div class="bg-light py-3">
     <div class="container">
     <div class="row">
-        <div class="col-md-12 mb-0"><a href="index.html">Home</a> <span class="mx-2 mb-0">/</span> <strong class="text-black">Shop</strong></div>
+        <div class="col-md-12 mb-0"><a href="{{ route('home') }}">Home</a> <span class="mx-2 mb-0">/</span> <strong class="text-black">Shop</strong></div>
     </div>
     </div>
 </div>
@@ -61,7 +61,7 @@
             </div>
             </div>
             @endforeach
-            
+
 
         </div>
         <div class="row" data-aos="fade-up">
@@ -73,7 +73,7 @@
         </div>
         </div>
 
-       
+
 
         <!-- <div class="border p-4 rounded mb-4">
             <div class="mb-4">
@@ -114,7 +114,7 @@
         </div> -->
         </div>
     </div>
-    
+
     </div>
 </div>
 @endsection
