@@ -1,95 +1,7 @@
--- phpMyAdmin SQL Dump
--- version 5.2.0
--- https://www.phpmyadmin.net/
---
--- Host: localhost
--- Waktu pembuatan: 16 Okt 2023 pada 09.20
--- Versi server: 10.4.27-MariaDB
--- Versi PHP: 7.4.33
-
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-START TRANSACTION;
-SET time_zone = "+00:00";
-
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
-
---
--- Database: `toko_online`
---
-
--- --------------------------------------------------------
-
---
--- Struktur dari tabel `alamat`
---
-
-CREATE TABLE `alamat` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `cities_id` int(11) NOT NULL,
-  `detail` varchar(191) NOT NULL,
-  `user_id` bigint(20) UNSIGNED NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Struktur dari tabel `alamat_toko`
---
-
-CREATE TABLE `alamat_toko` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `city_id` int(11) NOT NULL,
-  `detail` varchar(191) NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Struktur dari tabel `categories`
---
-
-CREATE TABLE `categories` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(191) NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data untuk tabel `categories`
---
-
 INSERT INTO `categories` (`id`, `name`, `created_at`, `updated_at`) VALUES
 (1, 'Software', '2023-10-01 21:56:53', '2023-10-01 21:56:53'),
 (2, 'Hardware', '2023-10-01 21:56:59', '2023-10-01 21:56:59'),
 (3, 'Desain', '2023-10-14 00:12:07', '2023-10-14 00:12:07');
-
--- --------------------------------------------------------
-
---
--- Struktur dari tabel `cities`
---
-
-CREATE TABLE `cities` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `province_id` bigint(20) UNSIGNED NOT NULL,
-  `city_id` bigint(20) UNSIGNED NOT NULL,
-  `title` varchar(191) NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data untuk tabel `cities`
---
 
 INSERT INTO `cities` (`id`, `province_id`, `city_id`, `title`, `created_at`, `updated_at`) VALUES
 (1, 1, 17, 'Badung', '2023-10-14 08:26:44', '2023-10-14 08:26:44'),
@@ -594,170 +506,10 @@ INSERT INTO `cities` (`id`, `province_id`, `city_id`, `title`, `created_at`, `up
 (500, 34, 470, 'Tebing Tinggi', '2023-10-14 08:27:41', '2023-10-14 08:27:41'),
 (501, 34, 481, 'Toba Samosir', '2023-10-14 08:27:41', '2023-10-14 08:27:41');
 
--- --------------------------------------------------------
-
---
--- Struktur dari tabel `couriers`
---
-
-CREATE TABLE `couriers` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `code` varchar(191) NOT NULL,
-  `title` varchar(191) NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data untuk tabel `couriers`
---
-
 INSERT INTO `couriers` (`id`, `code`, `title`, `created_at`, `updated_at`) VALUES
 (1, 'jne', 'JNE', NULL, NULL),
 (2, 'pos', 'POS', NULL, NULL),
 (3, 'tiki', 'TIKI', NULL, NULL);
-
--- --------------------------------------------------------
-
---
--- Struktur dari tabel `detail_order`
---
-
-CREATE TABLE `detail_order` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `order_id` bigint(20) UNSIGNED NOT NULL,
-  `product_id` bigint(20) UNSIGNED NOT NULL,
-  `qty` int(11) NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Struktur dari tabel `failed_jobs`
---
-
-CREATE TABLE `failed_jobs` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `connection` text NOT NULL,
-  `queue` text NOT NULL,
-  `payload` longtext NOT NULL,
-  `exception` longtext NOT NULL,
-  `failed_at` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Struktur dari tabel `keranjang`
---
-
-CREATE TABLE `keranjang` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `user_id` bigint(20) UNSIGNED NOT NULL,
-  `products_id` bigint(20) UNSIGNED NOT NULL,
-  `qty` int(11) NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Struktur dari tabel `migrations`
---
-
-CREATE TABLE `migrations` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `migration` varchar(191) NOT NULL,
-  `batch` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data untuk tabel `migrations`
---
-
-INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
-(1, '2014_10_12_000000_create_users_table', 1),
-(2, '2014_10_12_100000_create_password_resets_table', 1),
-(3, '2019_08_19_000000_create_failed_jobs_table', 1),
-(4, '2020_03_22_020309_create_provinces_table', 1),
-(5, '2020_03_22_020319_create_cities_table', 1),
-(6, '2020_03_22_020330_create_couriers_table', 1),
-(7, '2020_03_22_074903_create_categories_tables', 1),
-(8, '2020_03_22_074918_create_products_tables', 1),
-(9, '2020_03_22_132305_create_alamat_tables', 1),
-(10, '2020_03_22_132559_create_order_table', 1),
-(11, '2020_03_22_132659_create_detail_order', 1),
-(12, '2020_03_22_134342_create_status_order_table', 1),
-(13, '2020_03_22_143238_add_stok_to_product', 1),
-(14, '2020_03_22_150047_create_rekening_table', 1),
-(15, '2020_03_22_150145_add_biaya_cod_to_order', 1),
-(16, '2020_03_23_101813_add_keterangan_to_order', 1),
-(17, '2020_03_23_101848_create_keranjang_table', 1),
-(18, '2020_03_24_071526_add_bukti_telepon_to_order', 1),
-(19, '2020_03_24_072038_add_pesan_to_order', 1),
-(20, '2020_03_26_131136_create_alamat_toko_table', 1),
-(21, '2023_09_28_065505_create_rating_table', 1);
-
--- --------------------------------------------------------
-
---
--- Struktur dari tabel `order`
---
-
-CREATE TABLE `order` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `invoice` varchar(191) NOT NULL,
-  `user_id` bigint(20) UNSIGNED NOT NULL,
-  `subtotal` int(11) NOT NULL,
-  `no_resi` varchar(191) DEFAULT NULL,
-  `status_order_id` bigint(20) UNSIGNED NOT NULL,
-  `metode_pembayaran` varchar(191) NOT NULL,
-  `ongkir` int(11) NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL,
-  `biaya_cod` int(11) NOT NULL DEFAULT 0,
-  `no_hp` varchar(191) DEFAULT NULL,
-  `bukti_pembayaran` varchar(191) DEFAULT NULL,
-  `pesan` text DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Struktur dari tabel `password_resets`
---
-
-CREATE TABLE `password_resets` (
-  `email` varchar(191) NOT NULL,
-  `token` varchar(191) NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Struktur dari tabel `products`
---
-
-CREATE TABLE `products` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(191) NOT NULL,
-  `description` text NOT NULL,
-  `image` text NOT NULL,
-  `price` int(11) NOT NULL,
-  `weigth` int(11) NOT NULL,
-  `categories_id` bigint(20) UNSIGNED NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL,
-  `stok` int(11) NOT NULL DEFAULT 0
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data untuk tabel `products`
---
 
 INSERT INTO `products` (`id`, `name`, `description`, `image`, `price`, `weigth`, `categories_id`, `created_at`, `updated_at`, `stok`) VALUES
 (1, 'Sistem Keuangan', '-', 'imageproduct/ayeuVUSTTyRKGTH0FHlz1nE1WrNBBLq8WurPAuoV.png', 15000000, 0, 1, '2023-10-01 21:58:19', '2023-10-01 21:58:19', 100),
@@ -790,24 +542,6 @@ INSERT INTO `products` (`id`, `name`, `description`, `image`, `price`, `weigth`,
 (28, 'Desain Paket (Packaging Design)', '-', 'imageproduct/gHmScnGj4Z6KTpeQ2iAbrPTV5WWzpXxOUackTxiY.jpg', 10000000, 0, 3, '2023-10-14 00:43:33', '2023-10-14 00:43:33', 100),
 (29, 'CPU Rizen', '-', 'imageproduct/9zn4jhY7I5UfMgpNktL4MHxSNSyGoqTRYJlHsevG.jpg', 1000000, 200, 2, '2023-10-14 00:46:07', '2023-10-14 00:46:07', 100),
 (30, 'VGA Full', '-', 'imageproduct/IFdKuBKJX5lPu7HTuhIMHBqa1aor5g0NNAMMmVEx.jpg', 1000000, 1000, 2, '2023-10-14 00:46:33', '2023-10-14 00:46:33', 100);
-
--- --------------------------------------------------------
-
---
--- Struktur dari tabel `provinces`
---
-
-CREATE TABLE `provinces` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `province_id` bigint(20) UNSIGNED NOT NULL,
-  `title` varchar(191) NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data untuk tabel `provinces`
---
 
 INSERT INTO `provinces` (`id`, `province_id`, `title`, `created_at`, `updated_at`) VALUES
 (1, 1, 'Bali', '2023-10-14 08:26:42', '2023-10-14 08:26:42'),
@@ -845,26 +579,8 @@ INSERT INTO `provinces` (`id`, `province_id`, `title`, `created_at`, `updated_at
 (33, 33, 'Sumatera Selatan', '2023-10-14 08:27:37', '2023-10-14 08:27:37'),
 (34, 34, 'Sumatera Utara', '2023-10-14 08:27:39', '2023-10-14 08:27:39');
 
--- --------------------------------------------------------
 
---
--- Struktur dari tabel `rating`
---
-
-CREATE TABLE `rating` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `user_id` bigint(20) UNSIGNED NOT NULL,
-  `product_id` bigint(20) UNSIGNED NOT NULL,
-  `rating` float NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data untuk tabel `rating`
---
-
-INSERT INTO `rating` (`id`, `user_id`, `created_at`, `updated_at`) VALUES
+INSERT INTO `rating` (`id`, `user_id`, `product_id`, `rating`, `created_at`, `updated_at`) VALUES
 (1, 1, 5, 5, '2023-10-14 08:53:20', '2023-10-14 08:53:20'),
 (2, 1, 17, 2, '2023-10-14 08:53:47', '2023-10-14 08:53:47'),
 (3, 1, 1, 4.5, '2023-10-14 08:54:37', '2023-10-14 08:54:37'),
@@ -1321,44 +1037,8 @@ INSERT INTO `rating` (`id`, `user_id`, `created_at`, `updated_at`) VALUES
 (454, 119, 10, 5, '2023-10-14 22:27:21', '2023-10-14 22:27:21'),
 (455, 119, 21, 3.5, '2023-10-14 22:27:31', '2023-10-14 22:27:31');
 
--- --------------------------------------------------------
-
---
--- Struktur dari tabel `rekening`
---
-
-CREATE TABLE `rekening` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `bank_name` varchar(191) NOT NULL,
-  `atas_nama` varchar(191) NOT NULL,
-  `no_rekening` varchar(191) NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data untuk tabel `rekening`
---
-
 INSERT INTO `rekening` (`id`, `bank_name`, `atas_nama`, `no_rekening`, `created_at`, `updated_at`) VALUES
 (1, 'BRI', 'BUDI PRASOSJO', '123123', NULL, NULL);
-
--- --------------------------------------------------------
-
---
--- Struktur dari tabel `status_order`
---
-
-CREATE TABLE `status_order` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(191) NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data untuk tabel `status_order`
---
 
 INSERT INTO `status_order` (`id`, `name`, `created_at`, `updated_at`) VALUES
 (1, 'Belum Bayar', NULL, NULL),
@@ -1368,32 +1048,11 @@ INSERT INTO `status_order` (`id`, `name`, `created_at`, `updated_at`) VALUES
 (5, 'Barang Telah Sampai', NULL, NULL),
 (6, 'Pesanan Di Batalkan', NULL, NULL);
 
--- --------------------------------------------------------
-
---
--- Struktur dari tabel `users`
---
-
-CREATE TABLE `users` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(191) NOT NULL,
-  `email` varchar(191) NOT NULL,
-  `email_verified_at` timestamp NULL DEFAULT NULL,
-  `password` varchar(191) NOT NULL,
-  `role` varchar(30) NOT NULL,
-  `remember_token` varchar(100) DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data untuk tabel `users`
---
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `role`, `remember_token`, `created_at`, `updated_at`) VALUES
 (1, 'admin', 'admin@gmail.com', NULL, '$2y$10$Htd7g.ftuGfdlwk5zTbSk.DePcyti.U4zY58c4xtI4YuauoXffzrW', 'admin', NULL, NULL, NULL),
-(2, 'Dr. Markus Schneider I', 'budi@example.com', '2023-10-14 08:28:37', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', '', 'mxvlxok1hYp1b2mIYbJ23JNpVk6I4bulbrSOY1nZSBdqbzLDnMyr5jJ1Ggff', '2023-10-14 08:28:37', '2023-10-14 08:28:37'),
-(3, 'Madisen Ankunding Sr.', 'prasojo@example.com', '2023-10-14 08:28:37', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', '', 'LKtK9Ez6lVRCT3ilY0Q9QD1Qu6y50fym73JVbpTJEl2tXKGv2l8GCzIeEOyv', '2023-10-14 08:28:37', '2023-10-14 08:28:37'),
+(2, 'Budi', 'budi@example.com', '2023-10-14 08:28:37', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', '', 'mxvlxok1hYp1b2mIYbJ23JNpVk6I4bulbrSOY1nZSBdqbzLDnMyr5jJ1Ggff', '2023-10-14 08:28:37', '2023-10-14 08:28:37'),
+(3, 'Prasojo', 'prasojo@example.com', '2023-10-14 08:28:37', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', '', 'LKtK9Ez6lVRCT3ilY0Q9QD1Qu6y50fym73JVbpTJEl2tXKGv2l8GCzIeEOyv', '2023-10-14 08:28:37', '2023-10-14 08:28:37'),
 (4, 'Elisabeth Schmidt DDS', 'user@example.com', '2023-10-14 08:28:37', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', '', 'BgyxTxqdo6pzK95WKbuCVZPsqNOH8V1fJ2BTEXIcL3kgnjZqQE3yLm5yvyiH', '2023-10-14 08:28:37', '2023-10-14 08:28:37'),
 (5, 'Pearlie Luettgen PhD', 'idooley@example.com', '2023-10-14 08:28:37', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', '', 'IWU57aLnxq', '2023-10-14 08:28:37', '2023-10-14 08:28:37'),
 (6, 'Dr. Vince Wiza MD', 'schowalter.lavina@example.com', '2023-10-14 08:28:37', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', '', 'c2VBC5OWJ6', '2023-10-14 08:28:37', '2023-10-14 08:28:37'),
@@ -1511,214 +1170,7 @@ INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `ro
 (118, 'Mabelle Altenwerth Sr.', 'maria64@example.com', '2023-10-14 08:28:37', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', '', 'dUCPARxRMd', '2023-10-14 08:28:37', '2023-10-14 08:28:37'),
 (119, 'Kaleigh Hane', 'tdubuque@example.net', '2023-10-14 08:28:37', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', '', 'pIcRFEv6bD', '2023-10-14 08:28:37', '2023-10-14 08:28:37');
 
---
--- Indexes for dumped tables
---
 
---
--- Indeks untuk tabel `alamat`
---
-ALTER TABLE `alamat`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indeks untuk tabel `alamat_toko`
---
-ALTER TABLE `alamat_toko`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indeks untuk tabel `categories`
---
-ALTER TABLE `categories`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indeks untuk tabel `cities`
---
-ALTER TABLE `cities`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indeks untuk tabel `couriers`
---
-ALTER TABLE `couriers`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indeks untuk tabel `detail_order`
---
-ALTER TABLE `detail_order`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indeks untuk tabel `failed_jobs`
---
-ALTER TABLE `failed_jobs`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indeks untuk tabel `keranjang`
---
-ALTER TABLE `keranjang`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indeks untuk tabel `migrations`
---
-ALTER TABLE `migrations`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indeks untuk tabel `order`
---
-ALTER TABLE `order`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indeks untuk tabel `password_resets`
---
-ALTER TABLE `password_resets`
-  ADD KEY `password_resets_email_index` (`email`);
-
---
--- Indeks untuk tabel `products`
---
-ALTER TABLE `products`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indeks untuk tabel `provinces`
---
-ALTER TABLE `provinces`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indeks untuk tabel `rating`
---
-ALTER TABLE `rating`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indeks untuk tabel `rekening`
---
-ALTER TABLE `rekening`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indeks untuk tabel `status_order`
---
-ALTER TABLE `status_order`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indeks untuk tabel `users`
---
-ALTER TABLE `users`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `users_email_unique` (`email`);
-
---
--- AUTO_INCREMENT untuk tabel yang dibuang
---
-
---
--- AUTO_INCREMENT untuk tabel `alamat`
---
-ALTER TABLE `alamat`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT untuk tabel `alamat_toko`
---
-ALTER TABLE `alamat_toko`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT untuk tabel `categories`
---
-ALTER TABLE `categories`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
--- AUTO_INCREMENT untuk tabel `cities`
---
-ALTER TABLE `cities`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=502;
-
---
--- AUTO_INCREMENT untuk tabel `couriers`
---
-ALTER TABLE `couriers`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
--- AUTO_INCREMENT untuk tabel `detail_order`
---
-ALTER TABLE `detail_order`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT untuk tabel `failed_jobs`
---
-ALTER TABLE `failed_jobs`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT untuk tabel `keranjang`
---
-ALTER TABLE `keranjang`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT untuk tabel `migrations`
---
-ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
-
---
--- AUTO_INCREMENT untuk tabel `order`
---
-ALTER TABLE `order`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT untuk tabel `products`
---
-ALTER TABLE `products`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
-
---
--- AUTO_INCREMENT untuk tabel `provinces`
---
-ALTER TABLE `provinces`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
-
---
--- AUTO_INCREMENT untuk tabel `rating`
---
-ALTER TABLE `rating`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=456;
-
---
--- AUTO_INCREMENT untuk tabel `rekening`
---
-ALTER TABLE `rekening`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT untuk tabel `status_order`
---
-ALTER TABLE `status_order`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
---
--- AUTO_INCREMENT untuk tabel `users`
---
-ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=120;
-COMMIT;
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+UPDATE users
+SET role = 'customer'
+WHERE id != 1;

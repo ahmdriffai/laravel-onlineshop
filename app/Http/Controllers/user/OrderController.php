@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Order;
 use App\Detailorder;
 use App\Keranjang;
+use App\Rating;
 use App\Rekening;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -58,10 +59,12 @@ class OrderController extends Controller
             ->select('order.*', 'users.name as nama_pelanggan', 'status_order.name as status')
             ->where('order.id', $id)
             ->first();
-
+        $rating = Rating::where('user_id', Auth::user()->id)
+            ->where('product_id', $detail_order[0]->product_id)->first();
         return view('user.order.detail', [
             'detail' => $detail_order,
-            'order'  => $order
+            'order'  => $order,
+            'rating' => $rating,
         ]);
     }
 

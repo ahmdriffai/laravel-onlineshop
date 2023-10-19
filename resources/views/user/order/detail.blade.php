@@ -17,7 +17,7 @@
     </div>
     <div class="row">
         <div class="col-md-12">
-            <div class="card">  
+            <div class="card">
                 <div class="card-body">
                 <div class="row">
                 <div class="col-md-8">
@@ -53,6 +53,11 @@
                             <td>:</td>
                             <td>Rp. {{ number_format($order->subtotal + $order->biaya_cod,2,',','.') }}</td>
                         </tr>
+                        <tr>
+                            <th>Rating diberikan</th>
+                            <td>:</td>
+                            <td>{{ $rating->rating }}</td>
+                        </tr>
                     </table>
                 </div>
                 <div class="col-md-4 text-right">
@@ -84,13 +89,13 @@
                             @endforeach
                         </tbody>
                         </table>
-                    
+
                 </div>
                 </div>
             </div>
         </div>
     </div>
-    
+
 
     </div>
 </div>

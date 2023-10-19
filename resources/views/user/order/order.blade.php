@@ -44,7 +44,7 @@
             </table>
             </div>
            </div>
-        
+
     </div>
 
     </div>
@@ -85,7 +85,7 @@
                 @endforeach
             </tbody>
             </table>
-        
+
     </div>
 
     <div class="container">
@@ -107,6 +107,7 @@
                 </tr>
             </thead>
             <tbody>
+
                 @foreach($histori as $o)
                 <tr>
                     <td>{{ $o->invoice }}</td>
@@ -120,7 +121,7 @@
             </tbody>
             </table>
             </div>
-        
+
     </div>
 
     </div>

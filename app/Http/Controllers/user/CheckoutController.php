@@ -36,18 +36,21 @@ class CheckoutController extends Controller
         //ambil id kota toko
         $alamat_toko = DB::table('alamat_toko')->first();
 
+        // dd($alamat_toko->city_id);
         //lalu hitung ongkirnya
-        $cost = RajaOngkir::ongkosKirim([
-            'origin'        => $alamat_toko->id,
-            'destination'   => $city_destination,
-            'weight'        => $berattotal,
-            'courier'       => 'jne'
-        ])
-        ->get();
+//         $cost = RajaOngkir::ongkosKirim([
+//             'origin' => 398,
+// 'originType' => "city",
+// 'destination' => 398,
+// 'destinationType' => "city",
+// 'weight' => 1300,
+// 'courier' => 'jne:pos:tiki'
+//         ])
+//         ->get();
 
         //ambil hasil nya
-        $ongkir =  $cost[0]['costs'][0]['cost'][0]['value'];
-
+        // $ongkir =  $cost[0]['costs'][0]['cost'][0]['value'];
+        $ongkir = 20000;
         //lalu ambil alamat user untuk ditampilkan di view
         $alamat_user = Alamat::join('cities', 'cities.city_id', '=', 'alamat.cities_id')
             ->join('provinces', 'provinces.province_id', '=', 'cities.province_id')

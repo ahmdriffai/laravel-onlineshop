@@ -75,6 +75,7 @@ class TransaksiController extends Controller
             ->join('users', 'users.id', '=', 'order.user_id')
             ->select('order.*', 'status_order.name', 'users.name as nama_pemesan')
             ->where('order.status_order_id', 5)
+            ->orderBy(DB::raw('RAND()'))
             ->get();
 
         return view('admin.transaksi.selesai', compact('orderbaru'));
