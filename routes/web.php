@@ -88,6 +88,9 @@ Route::group(['middleware' => ['auth','checkRole:customer']],function(){
     Route::get('/order/pesanandibatalkan/{id}','user\OrderController@pesanandibatalkan')->name('user.order.pesanandibatalkan');
     Route::get('/order/pembayaran/{id}','user\OrderController@pembayaran')->name('user.order.pembayaran');
     Route::post('/order/kirimbukti/{id}','user\OrderController@kirimbukti')->name('user.order.kirimbukti');
+    Route::get('/rating/{produckid}', 'user\RatingController@index')->name('user.rating.index');
+    Route::post('/create', 'user\RatingController@create')->name('user.rating.create');
+
 });
 
 Route::get('/super-admin', 'SuperAdminController@index')->name('super-admin.index');

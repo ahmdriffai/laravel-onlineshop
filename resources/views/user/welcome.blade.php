@@ -62,6 +62,9 @@
     </div>
     @if (Auth::user())
     <div class="row mb-5">
+        @if ($produkrcmd == null)
+            <p class="mx-auto">Belum ada produk rekomendasi</p>
+        @endif
         @foreach($produkrcmd as $produk)
         <div class="col-sm-6 col-lg-4 mb-4" data-aos="fade-up">
         <div class="block-4 text-center border">

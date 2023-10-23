@@ -31,6 +31,7 @@
         border: #662d91;
       }
     </style>
+    @yield('style')
   </head>
   <body>
 

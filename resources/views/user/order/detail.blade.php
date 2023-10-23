@@ -21,7 +21,7 @@
                 <div class="card-body">
                 <div class="row">
                 <div class="col-md-8">
-                    <table>
+                    <table class="mb-4">
                         <tr>
                             <th>No Invoice</th>
                             <td>:</td>
@@ -56,7 +56,11 @@
                         <tr>
                             <th>Rating diberikan</th>
                             <td>:</td>
+                            @if ($rating == null)
+                            <td>Belum memberikan rating</td>
+                            @else
                             <td>{{ $rating->rating }}</td>
+                            @endif
                         </tr>
                     </table>
                 </div>
@@ -65,6 +69,7 @@
                     <a href="{{ route('user.order.pesananditerima',['id' => $order->id]) }}" onclik="return confirm('Yakin ingin melanjutkan ?')" class="btn btn-primary">Pesanan Di Terima</a><br>
                     <small>Jika pesanan belum datang harap jangan tekan tombol ini</small>
                     @endif
+
                 </div>
                 </div>
                 <div class="row mb-5">
@@ -85,6 +90,14 @@
                                 <td>{{ $o->nama_produk }}</td>
                                 <td>{{ $o->qty }}</td>
                                 <td>{{ $o->qty * $o->price }}</td>
+                                @if($order->status_order_id == 5)
+                                <td>
+                                    <a href="{{ route('user.rating.index', ['produckid' => $o->id]) }}" class="btn btn-primary">
+                                        Beri Rating
+                                    </a>
+                                </td>
+                                @endif
+
                             </tr>
                             @endforeach
                         </tbody>
@@ -94,9 +107,12 @@
                 </div>
             </div>
         </div>
+
     </div>
 
 
     </div>
 </div>
+
 @endsection
+

@@ -18,12 +18,14 @@ class WelcomeController extends Controller
         $produks = DB::table('products')->limit(10)->get();
         $produkrcmd = [];
         if (Auth::user()) {
-            $response = Http::get('http://127.0.0.1:105/predict/'.Auth::user()->id.'/30');
+            $response = Http::get('http://127.0.0.1:5000/predict/'.Auth::user()->id.'/30');
 
             if ($response->status() == 200) {
                 // dd($response->body());
                 $produkrcmd = json_decode($response->body(), true);
                 // dd($produkrcmd);
+            }else{
+                $produkrcmd = [];
             }
         }
 
