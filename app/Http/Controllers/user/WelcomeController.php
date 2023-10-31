@@ -19,7 +19,7 @@ class WelcomeController extends Controller
         $produks = DB::table('products')->limit(10)->get();
         $produkrcmd = [];
         if (Auth::user()) {
-            $response = Http::post(env('RECOMENDER_HOST') . ':' . env('RECOMENDER_PORT'). '/predict', [
+            $response = Http::post(env('RECOMENDER_HOST') . '/predict', [
                 'email' => Auth::user()->email,
                 'top_n' => 30
             ]);
