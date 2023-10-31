@@ -13,12 +13,16 @@ class WelcomeController extends Controller
 {
     public function index()
     {
+        // dd(env('RECOMENDER_HOST') . ':' . env('RECOMENDER_PORT'). '/predict');
         //menampilkan data produk dihalamam utama user dengan limit 10 data
         //untuk di carousel
         $produks = DB::table('products')->limit(10)->get();
         $produkrcmd = [];
         if (Auth::user()) {
-            $response = Http::get('http://127.0.0.1:5000/predict/'.Auth::user()->id.'/30');
+            $response = Http::post(env('RECOMENDER_HOST') . ':' . env('RECOMENDER_PORT'). '/predict', [
+                'email' => Auth::user()->email,
+                'top_n' => 30
+            ]);
 
             if ($response->status() == 200) {
                 // dd($response->body());

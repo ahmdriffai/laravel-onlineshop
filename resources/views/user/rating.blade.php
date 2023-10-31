@@ -117,8 +117,7 @@
                     <textarea name="pesan" class="form-control" placeholder="Catatan"></textarea>
                   </div>
                   <div class="form-group">
-                    <button class="btn btn-primary btn-lg py-3 btn-block" type="submit">Pesan Sekarang</button>
-                    <small>Mohon periksa alamat penerima dengan benar agar tidak terjadi salah pengiriman</small>
+                    <button class="btn btn-primary btn-lg py-3 btn-block" type="submit">Beri Rating</button>
                   </div>
                 </form>
                 </div>
