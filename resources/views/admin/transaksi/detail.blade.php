@@ -98,6 +98,22 @@
                             <small>Klik tombol ini jika pembeli sudah terbukti melakukan pembayaran</small>
                             </td>
                         </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td  class="p-2">
+                                <form method="POST" action="{{ route('admin.transaksi.pesan-pembayaran', ['id' => $order->id]) }}">
+                                    @csrf
+                                    <div class="form-group">
+                                        <label for="exampleFormControlTextarea1">Catatan Bukti Pembayaran</label>
+                                        <textarea class="form-control" name="catatan" id="exampleFormControlTextarea1" rows="3">{{ $order->pesan_pembayaran }}</textarea>
+
+                                    </div>
+                                    <button type="submit" class="btn btn-secondary mt-1">Catatan Bukti Bayar</button><br>
+                                </form>
+                                <small>Catatan bukti pembayaran digunakan apabila bukti pembayaran yang dikirim costumer tidak sesuai</small>
+                            </td>
+                        </tr>
                         @endif
                         @endif
                         @if($order->status_order_id == 3)
@@ -152,5 +168,5 @@
               </div>
             </div>
           </div>
-          
+
 @endsection

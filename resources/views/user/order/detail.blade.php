@@ -62,6 +62,15 @@
                             <td>{{ $rating->rating }}</td>
                             @endif
                         </tr>
+                        <tr>
+                            <th>Catatan Pemilik Toko</th>
+                            <td>:</td>
+                            @if ($order->pesan_pembayaran == null)
+                            <td>-</td>
+                            @else
+                            <td class="text-warning"><strong>{{ $order->pesan_pembayaran }}</strong></td>
+                            @endif
+                        </tr>
                     </table>
                 </div>
                 <div class="col-md-4 text-right">

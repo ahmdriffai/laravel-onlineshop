@@ -131,4 +131,13 @@ class TransaksiController extends Controller
 
         return redirect()->route('admin.transaksi.perludikirim')->with('status', 'Berhasil Menginput No Resi');
     }
+
+    public function pesanpembayaran($id, Request $request)
+    {
+        Order::where('id', $id)
+                ->update([
+                    'pesan_pembayaran' => $request->catatan,
+                ]);
+        return redirect()->back()->with('status', 'Berhasil Menginput No Resi');
+    }
 }
