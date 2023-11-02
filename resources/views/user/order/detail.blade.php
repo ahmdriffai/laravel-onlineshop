@@ -70,7 +70,7 @@
                             @else
                             <td class="text-warning">
                                 <strong>{{ $order->pesan_pembayaran }}</strong>
-                                @if ($order->status_order == 2)
+                                @if ($order->status_order_id == 2)
                                     <a href="{{ route('user.order.pembayaran', ['id' => $order->id]) }}" class="btn btn-primary">Kirim ulang</a>
                                 @endif
                             </td>
