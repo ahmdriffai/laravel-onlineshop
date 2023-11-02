@@ -106,9 +106,13 @@
                                 <td>{{ $o->qty * $o->price }}</td>
                                 @if($order->status_order_id == 5)
                                 <td>
-                                    <a href="{{ route('user.rating.index', ['produckid' => $o->id]) }}" class="btn btn-primary">
+                                    @if ($rating == null)
+                                    <a href="{{ route('user.rating.index', ['orderid' => $o->id]) }}" class="btn btn-primary">
                                         Beri Rating
                                     </a>
+                                    @else
+                                    <p>Rating sudah diberikan</p>
+                                    @endif
                                 </td>
                                 @endif
 

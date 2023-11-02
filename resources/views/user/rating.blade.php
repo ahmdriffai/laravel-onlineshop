@@ -91,7 +91,8 @@
                   <form action="{{ route('user.rating.create') }}" method="POST">
                     @csrf
 
-                    <input type="hidden" name="product_id" value="{{ $produkId }}">
+                    <input type="hidden" name="product_id" value="{{ $detailorder->product_id }}">
+                    <input type="hidden" name="order_id" value="{{ $detailorder->order_id }}">
                     <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
                     <div class="form-group">
 

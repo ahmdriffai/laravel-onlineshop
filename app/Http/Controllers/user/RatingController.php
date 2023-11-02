@@ -2,14 +2,16 @@
 
 namespace App\Http\Controllers\user;
 
+use App\Detailorder;
 use App\Http\Controllers\Controller;
 use App\Rating;
 use Illuminate\Http\Request;
 
 class RatingController extends Controller
 {
-    public function index($produkId) {
-        return view('user.rating', compact('produkId'));
+    public function index($orderid) {
+        $detailorder = Detailorder::where('order_id', $orderid)->first();
+        return view('user.rating', compact('detailorder'));
     }
 
     public function create(Request $request){
@@ -21,8 +23,10 @@ class RatingController extends Controller
 
         $user_id = $request->input('user_id');
         $product_id = $request->input('product_id');
+        $order_id = $request->input('order_id');
         $rating = (float)$request->input('rating');
 
+        // dd($product_id);
         $ratingvalid = Rating::where('user_id', $user_id)->where('product_id', $product_id)->first();
 
         if ($ratingvalid !== null) {
@@ -35,6 +39,6 @@ class RatingController extends Controller
             'rating' => $rating
         ]);
 
-        return redirect()->back()->with('success', 'Berhasil memberikan rating');
+        return redirect()->route('user.order.detail', ['id' => $order_id])->with('success', 'Berhasil memberikan rating');
     }
 }
