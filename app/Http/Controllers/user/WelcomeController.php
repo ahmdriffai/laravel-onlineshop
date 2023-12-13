@@ -16,7 +16,7 @@ class WelcomeController extends Controller
         // dd(env('RECOMENDER_HOST') . ':' . env('RECOMENDER_PORT'). '/predict');
         //menampilkan data produk dihalamam utama user dengan limit 10 data
         //untuk di carousel
-        $produks = DB::table('products')->limit(10)->get();
+        $produks = Product::inRandomOrder()->get();
         $produkrcmd = [];
         if (Auth::user()) {
             $response = Http::post(env('RECOMENDER_HOST') . '/predict', [
@@ -32,6 +32,8 @@ class WelcomeController extends Controller
                 $produkrcmd = [];
             }
         }
+
+
 
 
         return view('user.welcome', compact('produks', 'produkrcmd'));
