@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Order;
 use App\Product;
+use App\Rating;
 
 class TransaksiController extends Controller
 {
@@ -38,9 +39,11 @@ class TransaksiController extends Controller
             ->where('order.id', $id)
             ->first();
 
+        $rating = Rating::where('product_id', $detail_order[0]->product_id)->first();
         return view('admin.transaksi.detail', [
             'detail' => $detail_order,
-            'order'  => $order
+            'order'  => $order,
+            'rating' => $rating
         ]);
     }
 

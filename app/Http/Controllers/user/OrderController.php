@@ -105,7 +105,8 @@ class OrderController extends Controller
         $order->status_order_id = 5;
         $order->save();
 
-        return redirect()->route('user.order.detail', ['id' => $id]);
+        // return redirect()->route('user.order.detail', ['id' => $id]);
+        return redirect()->route('user.rating.index', ['orderid' => $order->id]);
     }
 
     public function pesanandibatalkan($id)

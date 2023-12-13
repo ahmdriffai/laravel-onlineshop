@@ -135,6 +135,15 @@
                             </td>
                         </tr>
                         @endif
+                        <tr>
+                            <td>Rating</td>
+                            <td>:</td>
+                            @if ($rating == null)
+                                <td>Belum memberikan rating</td>
+                            @else
+                                <td>{{ $rating->rating }}</td>
+                            @endif
+                        </tr>
                     </table>
                     </div>
                     <div class="col-md-5">
@@ -156,6 +165,7 @@
                                 <td>{{ $dt->nama_produk }}</td>
                                 <td>{{ $dt->qty }}</td>
                                 <td>{{ $dt->qty * $dt->price }}</td>
+
                             </tr>
                             @endforeach
                         </tbody>
